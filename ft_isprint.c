@@ -5,15 +5,21 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: ufessler <ufessler@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/06/08 21:22:46 by ufessler          #+#    #+#             */
+/*   Created: 2023/05/28 20:12:09 by ufessler          #+#    #+#             */
 /*   Updated: 2023/06/08 21:22:46 by ufessler         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int
-    ft_isprint(int c)
+int	ft_isprint(int c)
 {
-    return (c >= 32 && c <= 126);
+	if (c >= 32 && c <= 126)
+	{
+		return (1);
+	}
+	else
+	{
+		return (0);
+	}
 }

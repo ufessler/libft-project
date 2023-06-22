@@ -1,21 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_isdigit.c                                       :+:      :+:    :+:   */
+/*   ft_lstclear.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ufessler <ufessler@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/05/28 16:33:56 by ufessler          #+#    #+#             */
-/*   Updated: 2023/06/08 09:48:29 by ufessler         ###   ########.fr       */
+/*   Created: 2023/06/18 12:33:16 by ufessler          #+#    #+#             */
+/*   Updated: 2023/06/19 23:53:13 by ufessler         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	ft_isdigit(int c)
+void	ft_lstclear(t_list **lst, void (*del)(void*))
 {
-	if (c >= 48 && c <= 57)
-		return (1);
-	else
-		return (0);
+	t_list	*tmp;
+
+	tmp = 0;
+	if (!lst)
+		return ;
+	while (*lst)
+	{
+		tmp = *lst;
+		*lst = (*lst)->next;
+		del((tmp)->content);
+		free(tmp);
+	}
 }

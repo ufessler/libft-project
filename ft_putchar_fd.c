@@ -5,15 +5,14 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: ufessler <ufessler@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/06/11 21:59:36 by ufessler          #+#    #+#             */
+/*   Created: 2023/05/01 12:29:03 by ufessler          #+#    #+#             */
 /*   Updated: 2023/06/11 21:59:36 by ufessler         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void
-        ft_putchar_fd(char c, int fd)
+void	ft_putchar_fd(char c, int fd)
 {
-    write(fd, &c, 1);
+	write(fd, &c, 1);
 }

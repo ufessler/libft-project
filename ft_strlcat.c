@@ -5,37 +5,36 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: ufessler <ufessler@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/06/09 15:12:42 by ufessler          #+#    #+#             */
+/*   Created: 2023/06/03 12:53:23 by ufessler          #+#    #+#             */
 /*   Updated: 2023/06/09 15:12:42 by ufessler         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdlib.h>
 #include "libft.h"
 
-size_t
-	ft_strlcat(char *dst, const char *src, size_t size)
+size_t	ft_strlcat(char *dst, const char *src, size_t dstsize)
 {
 	size_t	i;
 	size_t	j;
-	size_t	dest_length;
-	size_t	src_length;
+	size_t	res;
 
-	src_length = ft_strlen(src);
-	dest_length = ft_strlen(dst);
-	j = dest_length;
-	i = 0;
-	if (dest_length < size - 1 && size > 0)
+	i = ft_strlen(dst);
+	res = ft_strlen(src);
+	j = 0;
+	if (dstsize <= i)
 	{
-		while (src[i] && dest_length + i < size - 1)
-		{
-			dst[j] = src[i];
-			j++;
-			i++;
-		}
-		dst[j] = 0;
+		return (res + dstsize);
 	}
-	if (dest_length >= size)
-		dest_length = size;
-	return (dest_length + src_length);
+	else
+	{
+		res = res + i;
+	}
+	while (src[j] != '\0' && i + 1 < dstsize)
+	{
+		dst[i] = src[j];
+		i++;
+		j++;
+	}
+	dst[i] = '\0';
+	return (res);
 }

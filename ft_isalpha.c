@@ -5,16 +5,17 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: ufessler <ufessler@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/06/08 09:39:05 by ufessler          #+#    #+#             */
+/*   Created: 2023/06/01 12:37:09 by ufessler          #+#    #+#             */
 /*   Updated: 2023/06/08 09:39:05 by ufessler         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int
-        ft_isalpha(int c)
+int	ft_isalpha(int c)
 {
-        return ((c >= 'A' && c <= 'Z') ||
-                        (c >= 'a' && c <= 'z'));
+	if ((c >= 'a' && c <= 'z') || (c >= 'A' && c <= 'Z' ))
+		return (1);
+	else
+		return (0);
 }

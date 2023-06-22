@@ -5,15 +5,17 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: ufessler <ufessler@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/06/08 11:12:26 by ufessler          #+#    #+#             */
+/*   Created: 2023/05/18 09:44:23 by ufessler          #+#    #+#             */
 /*   Updated: 2023/06/08 11:12:26 by ufessler         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int
-        ft_ascii(int c)
+int	ft_isascii(int c)
 {
-        return (c >= 0 && c < 128);
+	if (c >= 0 && c <= 127)
+		return (1);
+	else
+		return (0);
 }

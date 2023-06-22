@@ -5,18 +5,17 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: ufessler <ufessler@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/06/11 22:00:39 by ufessler          #+#    #+#             */
+/*   Created: 2023/05/10 12:53:35 by ufessler          #+#    #+#             */
 /*   Updated: 2023/06/11 22:00:39 by ufessler         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void
-	ft_putendl_fd(char *s, int fd)
+void	ft_putendl_fd(char *s, int fd)
 {
-	const char	nl = '\n';
-
+	if (!s || fd < 0)
+		return ;
 	write(fd, s, ft_strlen(s));
-	write(fd, &nl, 1);
+	write(fd, "\n", 1);
 }

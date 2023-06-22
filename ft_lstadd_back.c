@@ -1,21 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_isdigit.c                                       :+:      :+:    :+:   */
+/*   lstadd_back.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ufessler <ufessler@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/05/28 16:33:56 by ufessler          #+#    #+#             */
-/*   Updated: 2023/06/08 09:48:29 by ufessler         ###   ########.fr       */
+/*   Created: 2023/06/01 10:23:32 by ufessler          #+#    #+#             */
+/*   Updated: 2023/06/13 00:31:21 by ufessler         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	ft_isdigit(int c)
+void	ft_lstadd_back(t_list **lst, t_list *new)
 {
-	if (c >= 48 && c <= 57)
-		return (1);
+	t_list	*temp;
+
+	temp = *lst;
+	if (*lst == NULL)
+	{
+		*lst = new;
+	}
 	else
-		return (0);
+	{
+		while (temp->next != NULL)
+		{
+		temp = temp->next;
+		}
+	temp->next = new;
+	}
 }

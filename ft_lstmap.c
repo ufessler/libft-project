@@ -1,21 +1,36 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_isdigit.c                                       :+:      :+:    :+:   */
+/*   ft_lstmap.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ufessler <ufessler@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/05/28 16:33:56 by ufessler          #+#    #+#             */
-/*   Updated: 2023/06/08 09:48:29 by ufessler         ###   ########.fr       */
+/*   Created: 2023/06/11 12:45:03 by ufessler          #+#    #+#             */
+/*   Updated: 2023/06/20 00:47:02 by ufessler         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	ft_isdigit(int c)
+t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *))
 {
-	if (c >= 48 && c <= 57)
-		return (1);
-	else
-		return (0);
+	t_list	*newnode;
+	t_list	*ptr;
+	t_list	*newlist;
+
+	newlist = NULL;
+	ptr = lst;
+	while (ptr)
+	{
+		newnode = ft_lstnew(f(ptr->content));
+		if (newnode)
+			ft_lstadd_back(&newlist, newnode);
+		else
+		{
+			ft_lstclear(&newlist, del);
+			return (NULL);
+		}
+		ptr = ptr->next;
+	}
+	return (newlist);
 }
